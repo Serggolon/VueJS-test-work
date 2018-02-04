@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+    #textout{
+        width: 400px;
+        height: 400px;
+        background-color: aqua
+    }
+    
+    
+</style>
+</head>
+<body>
+    <button id="textget" data-url="text/dis_1.txt" data-rout="textout">скачать текст</button>
+    <div id="textout"></div>
+<script src='js/jquery-3.1.1.min.js'></script>   
+<script>
+ // промис для скачивания контента по ссылке указанной в атрибуте data-url
+function uploaddis(url){
+ return new Promise(function (resolve,reject){
+     var text=$.ajax(url,{
+         success: function(data){
+             resolve(data);
+         },
+         error: function(e, t, tt){
+             reject(tt);
+         },
+         cache: false
+     });
+ });   
+}
+let button=document.getElementById('textget');   
+button.onclick=function(){
+    var target=event.target;
+    var url=target.getAttribute('data-url');
+    uploaddis(url).then( function(data, target_block){   
+        var rout=target.getAttribute('data-rout');
+        var target_block=document.getElementById(rout);
+        target_block.innerHTML=data;
+    })
+}
+</script>
+</body>
+</html>

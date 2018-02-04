@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/body.css" />
+<!--    <link rel="stylesheet/less" type="text/css" href="css/body-style.less" />-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+</head>
+
+<body>
+
+        <div id="main" v-on:click="clickall" >
+               <div id="menu" class="">
+
+
+                    <menu-item  v-for="item in menus"  v-bind:menu="item"  ></menu-item>
+                </div>
+
+                <div id="cont_main" class="box">
+                <a name="c_m"></a>
+                <tree v-for="item in diseases"   v-bind:disease="item"></tree>
+                </div>
+
+                <div id="disandprof" class="box">
+                   <a name="dis"></a>
+                    <div id="dis_inf"></div>
+                    <div id="prof">
+                    <professional v-for="item in specialists"  v-bind:specialist="item"></professional> 
+                    </div>
+                </div>
+
+                <div id="biography" class="box">
+                    <a name="bio"></a>
+                </div>
+                <div id="contacts" class="box">
+                    <a name="cont"></a>
+                </div>
+                <div id="footer">
+                    <h4 class="title" v-once>{{footer}}</h4>
+                </div>
+                <div id="anchoredlink">
+                   <anchored-item  v-for="item in anchors"  :anchor="item"></anchored-item> 
+                </div>
+        </div>
+    
+<script src='js/jquery-3.1.1.min.js'></script>
+<script src="js/js.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+@color-bgbox: #ea186e;
+@color-txtbox: #000;
+.btn-flat(@bgcolor: @color-btn, @color: @color-txt, @pad: 1rem) {
+	display: inline-block; 	text-align: center;	text-decoration: none;
+	
+	margin: @pad 0;
+	padding: @pad/2 @pad;
+	background: @bgcolor;
+	color: @color;
+	border: @pad/10 solid darken(@bgcolor,15%);
+}
+.box-def(@bgcolor: @color-bgbox, @color: @color-txtbox, @pad: 1rem){
+        border: @pad/5 solid darken(@color-bgbox,70%);
+        border-radius: 8*@pad;
+        min-height: 300px;
+        margin: 20px;
+        padding: 30px;
+        color: @color;
+        background: @bgcolor;
+}
+.box{
+    .box-def;
+}
